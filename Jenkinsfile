@@ -1,18 +1,25 @@
 pipeline {
+
     agent any
+
     stages {
-        stage('Example') {
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
+
+        stage('Build') {
+           steps {
+                echo "Build step Compleated"
             }
+       }
+        stage('Test') {
             steps {
-                echo "Hello, ${PERSON}, nice to meet you."
+                echo "Testing step compleated"
             }
         }
+         stage('Deploy') { 
+               steps {
+                echo "Deploy step compleated"
+            }       
     }
+
+    }
+
 }
